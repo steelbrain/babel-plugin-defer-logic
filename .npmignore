@@ -1,5 +1,7 @@
 src/
+.circleci/
 .eslintrc.json
 babel.config.js
 .prettierrc
 plugin.test.ts
+tsconfig.json
