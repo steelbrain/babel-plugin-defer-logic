@@ -5,6 +5,10 @@
   "main": "lib/index.js",
   "scripts": {
     "prepare": "sb-babel-cli src -o lib --typescript",
+    "test:jest": "jest plugin.test.ts",
+    "test:prettier": "prettier --list-different src",
+    "test:typescript": "tsc -p . --noEmit",
+    "test": "yarn test:prettier && yarn test:typescript && yarn test:jest",
     "watch": "yarn prepare -w"
   },
   "author": "steelbrain <i@steelbrain.me>",
@@ -18,7 +22,10 @@
     "@babel/preset-env": "^7.8.7",
     "@babel/preset-typescript": "^7.8.3",
     "@types/babel__core": "^7.1.7",
+    "babel-plugin-tester": "^9.0.0",
     "eslint-config-steelbrain": "^9.0.1",
+    "jest": "^25.3.0",
+    "prettier": "^2.0.4",
     "sb-babel-cli": "^3.0.0",
     "typescript": "^3.8.3"
   }

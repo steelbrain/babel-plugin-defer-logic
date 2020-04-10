@@ -2,7 +2,7 @@ import { NodePath, types } from '@babel/core'
 
 const SYM_DEFER_BLOCK = Symbol('defer block')
 
-export default function() {
+export default function () {
   return {
     visitor: {
       CallExpression: {
@@ -14,12 +14,11 @@ export default function() {
           if (callee.type !== 'Identifier' || callee.name !== 'defer') {
             return
           }
-          console.log(args)
           // Ignore if `defer` is locally defined
           if (path.scope.hasBinding('defer')) {
             return
           }
-          const functionParentPath = path.findParent(item => item.isFunction()) as
+          const functionParentPath = path.findParent((item) => item.isFunction()) as
             | NodePath<types.FunctionDeclaration | types.ArrowFunctionExpression>
             | undefined
 
@@ -37,7 +36,7 @@ export default function() {
 
           const { body } = functionParentPath.node
           let deferBlock = body.body.find(
-            item => item.type === 'TryStatement' && item[SYM_DEFER_BLOCK],
+            (item) => item.type === 'TryStatement' && item[SYM_DEFER_BLOCK],
           ) as types.TryStatement
 
           if (deferBlock == null) {
@@ -47,7 +46,7 @@ export default function() {
             functionParentPath.get('body').replaceWith(types.blockStatement([deferBlock]))
           }
 
-          args.forEach(arg => {
+          args.forEach((arg) => {
             let argValue: any
             if (types.isFunction(arg)) {
               argValue = arg.body

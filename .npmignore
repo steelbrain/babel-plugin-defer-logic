@@ -2,4 +2,4 @@ src/
 .eslintrc.json
 babel.config.js
 .prettierrc
-/lib/test.js
+plugin.test.ts
