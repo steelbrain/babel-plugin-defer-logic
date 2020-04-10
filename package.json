@@ -1,0 +1,25 @@
+{
+  "name": "babel-plugin-defer-logic",
+  "version": "0.0.1",
+  "description": "Defer logic to be executed in JS functions",
+  "main": "lib/index.js",
+  "scripts": {
+    "prepare": "sb-babel-cli src -o lib --typescript",
+    "watch": "yarn prepare -w"
+  },
+  "author": "steelbrain <i@steelbrain.me>",
+  "license": "MIT",
+  "dependencies": {},
+  "peerDependencies": {
+    "@babel/core": "^7.8.7"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "@babel/preset-typescript": "^7.8.3",
+    "@types/babel__core": "^7.1.7",
+    "eslint-config-steelbrain": "^9.0.1",
+    "sb-babel-cli": "^3.0.0",
+    "typescript": "^3.8.3"
+  }
+}
