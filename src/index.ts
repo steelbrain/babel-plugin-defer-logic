@@ -42,7 +42,7 @@ export default function() {
 
           if (deferBlock == null) {
             // Create new block
-            deferBlock = types.tryStatement(types.blockStatement(body.body), null, types.blockStatement([]))
+            deferBlock = types.tryStatement(body, null, types.blockStatement([]))
             deferBlock[SYM_DEFER_BLOCK] = true
             functionParentPath.get('body').replaceWith(types.blockStatement([deferBlock]))
           }
